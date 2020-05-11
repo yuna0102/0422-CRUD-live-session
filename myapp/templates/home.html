@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<div>
+    <div class="col-sm-6" style="margin-bottom : 25px;">
+        <a href="{% url 'new' %}"><button type="button" class="btn btn-primary">새로운 게시물 작성</button></a>
+    </div>
+
+    <div class="container">
+        {% for blog in blogs.all %}
+        <div class="col-sm-6" style="margin-bottom : 25px;">
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top" alt="…">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{blog.title}}</h5>
+                    <p class="card-text">{{blog.pub_date}}</p>
+                    <p class="card-text">{{blog.summary}}</p>
+                    <a href="{% url 'detail' blog.id %}" class="btn btn-primary">더보기</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+    {% endblock %}

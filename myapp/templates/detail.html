@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+
+<a href="{% url 'delete' details.id %}">삭제하기</a>
+<a href="{% url 'edit' details.id %}">수정하기</a>
+<a href="{% url 'home' %}">홈으로 가기</a>
+
+
+{{details.title}}
+{{details.pub_date}}
+{{details.body}}
+<!-- 안에 있는 괄호는 객체를 뜻하고 밖에 있는 괄호는 이 객체를 변화시켜줌 -->
+{% endblock %}
